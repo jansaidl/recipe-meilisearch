@@ -1,5 +1,5 @@
 zerops:
-  - setup: app
+  - setup: meilisearch
     build:
       buildCommands:
         - curl -L https://install.meilisearch.com | sh
