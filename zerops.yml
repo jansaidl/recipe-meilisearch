@@ -1,0 +1,38 @@
+zerops:
+  - setup: app
+    build:
+      buildCommands:
+        - curl -L https://install.meilisearch.com | sh
+      deployFiles:
+       - meilisearch
+    run:
+      os: ubuntu
+      base: go@1
+      ports:
+        - protocol: tcp
+          port: 7700
+          httpSupport: true
+      envVariables:
+        MEILI_HTTP_ADDR: "[::]:7700"
+      start: ./meilisearch
+      healthCheck:
+        httpGet:
+          port: 7700
+          path: /health
+#  - setup: sync
+#    build:
+#      base: go@1
+#      buildCommands:
+#        - echo "nothing to do"
+#      deployFiles:
+#        - index.html
+#    run:
+#      os: ubuntu
+#      base: python@3.11
+#      prepareCommands:
+#        - pip install redis
+#        - pip install psycopg2
+#        - pip install asyncmy
+#        - pip install motor
+#        - pip install meilisync
+#      start: meilisync
