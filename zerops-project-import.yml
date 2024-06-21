@@ -6,7 +6,7 @@ project:
 
 services:
   - hostname: meilisearch
-    type: go@1
+    type: "22.04"
     enableSubdomainAccess: true
     buildFromGit: https://github.com/jansaidl/recipe-meilisearch
     envSecrets:
