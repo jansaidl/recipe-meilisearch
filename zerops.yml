@@ -14,6 +14,11 @@ zerops:
           httpSupport: true
       envVariables:
         MEILI_HTTP_ADDR: "[::]:7700"
+        MEILI_SNAPSHOT_DIR: /mnt/meilistorage
+        MEILI_IMPORT_SNAPSHOT: /mnt/meilistorage
+        MEILI_SCHEDULE_SNAPSHOT: "600"
+        MEILI_IGNORE_MISSING_SNAPSHOT: ""
+        MEILI_IGNORE_SNAPSHOT_IF_DB_EXISTS: ""
       start: ./meilisearch
       healthCheck:
         httpGet:

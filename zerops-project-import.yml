@@ -6,8 +6,12 @@ project:
 
 services:
   - hostname: meilisearch
-    type: "22.04"
+    type: "ubuntu@22.04"
     enableSubdomainAccess: true
     buildFromGit: https://github.com/jansaidl/recipe-meilisearch
+    mount:
+      - meilistorage
     envSecrets:
       MEILI_MASTER_KEY: <@generateRandomString(<16>)>
+  - hostname: meilistorage
+    type: "sharedstorage"
